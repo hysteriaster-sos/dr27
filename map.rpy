@@ -65,8 +65,7 @@ screen map_menu():
             xpos hx
             ypos hy
             xysize (hw, hh)
-            sensitive loc["jump"] is not None
-            action Return(loc["jump"]) if loc["jump"] else NullAction()
+            action If(loc["jump"], Return(loc["jump"]))
 
 
 style map_title is gui_text:
