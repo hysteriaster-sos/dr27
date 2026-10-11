@@ -18,7 +18,7 @@
 ##     button appears once it is set.
 ##
 ## The player can also open the map at any time with the keyboard shortcut below
-## (F6 by default). Escape or a right-click closes it.
+## (M by default). Escape or a right-click closes it.
 
 define map_locations = [
     {"name": "School Gates", "rect": (150, 640, 380, 210), "jump": None},
@@ -29,10 +29,9 @@ define map_locations = [
 ## hide the Leave button while the map is still the main screen.
 define map_exit_label = ""
 
-## Key that opens the map from anywhere in the story. F6 is unused by Ren'Py's
-## default keymap (F1-F4, F7, F8, F11 are taken; F5 and F9 are the usual quick
-## save and quick load). Change this to any free key for a different shortcut.
-define map_hotkey_key = "K_F6"
+## Key that opens the map from anywhere in the story. M is unused by Ren'Py's
+## default keymap. Change this to any free key for a different shortcut.
+define map_hotkey_key = "K_m"
 
 ## True while the map was opened by the shortcut, so the Leave button shows even
 ## before map_exit_label is set.
