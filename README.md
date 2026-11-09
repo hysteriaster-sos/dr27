@@ -2,8 +2,6 @@ This is just for me @shubhumjosh-eng so that i know where is what
 so this frist thing is the i have to make the e-handbook/ Monopad as astter told me to do, so I will do it by 11/11/2026 by 4 am. 
 So this is how i am going to do it by idk i will just do it that is a prblem for the me later.
 one more thing make the settings and make it so is the usefull, [read this and dont be a dumbass](https://www.gamedeveloper.com/design/create-better-game-settings-options-handy-checklist-) do it by 12/11/2026 by 12 pm.
-and the DEADLINE IS 14/11/2026 AND FOR ALL THE CODING IT IS 21/11/2026 !!!!!!!!!!!! 😶‍🌫️😶‍🌫️😶‍🌫️😶‍🌫️🫥🫥🫥🫥🫠🫠🫠🥶🥶🥶😨😨😨😨😱😱😱 ![I'm Cooked](https://giphy.com)
-
-
+and the DEADLINE IS 14/11/2026 AND FOR ALL THE CODING IT IS 21/11/2026 !!!!!!!!!!!! 😶‍🌫️😶‍🌫️😶‍🌫️😶‍🌫️🫥🫥🫥🫥🫠🫠🫠🥶🥶🥶😨😨😨😨😱😱😱 <div class="tenor-gif-embed" data-postid="12372355957950215332" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/thu-kuna-dancing-jujutsu-kaisen-gif-12372355957950215332">Thu Kuna Dancing GIF</a>from <a href="https://tenor.com/search/thu+kuna-gifs">Thu Kuna GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 I think that is for now, if there is anything else i will tell myself to do it later 
