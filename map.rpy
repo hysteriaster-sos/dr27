@@ -16,6 +16,9 @@
 ##   - End every room label with:          jump map_hub
 ##   - Set map_exit_label to the label that follows the map section. The Leave
 ##     button appears once it is set.
+##
+## The player can also open the map at any time with the keyboard shortcut below
+## (M by default). Escape or a right-click closes it.
 
 define map_locations = [
     {"name": "School Gates", "rect": (150, 640, 380, 210), "jump": None},
@@ -25,6 +28,36 @@ define map_locations = [
 ## Label the story continues to when the player leaves the map. Leave empty to
 ## hide the Leave button while the map is still the main screen.
 define map_exit_label = ""
+
+## Key that opens the map from anywhere in the story. M is unused by Ren'Py's
+## default keymap. Change this to any free key for a different shortcut.
+define map_hotkey_key = "K_m"
+
+## True while the map was opened by the shortcut, so the Leave button shows even
+## before map_exit_label is set.
+default map_from_hotkey = False
+
+
+init python:
+
+    if "map_hotkey" not in config.overlay_screens:
+        config.overlay_screens.append("map_hotkey")
+
+    def open_map():
+        if renpy.context()._menu:
+            return
+        if renpy.get_screen("map_menu"):
+            return
+
+        renpy.store.map_from_hotkey = True
+        try:
+            renpy.call_in_new_context("map_hub")
+        finally:
+            renpy.store.map_from_hotkey = False
+
+
+screen map_hotkey():
+    key map_hotkey_key action Function(open_map)
 
 
 ## Rooms are replayed, so control always comes back here.
@@ -44,6 +77,8 @@ screen map_menu():
     modal True
     zorder 50
 
+    key "game_menu" action Return(None)
+
     if renpy.loadable("images/school_map.png"):
         add "images/school_map.png"
     else:
@@ -53,7 +88,7 @@ screen map_menu():
 
     text "Select a location" style "map_hint"
 
-    if map_exit_label:
+    if map_from_hotkey or map_exit_label:
         textbutton _("Leave"):
             style "return_button"
             action Return(None)
@@ -65,8 +100,7 @@ screen map_menu():
             xpos hx
             ypos hy
             xysize (hw, hh)
-            sensitive loc["jump"] is not None
-            action Return(loc["jump"]) if loc["jump"] else NullAction()
+            action If(loc["jump"], Return(loc["jump"]))
 
 
 style map_title is gui_text:
