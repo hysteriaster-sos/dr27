@@ -765,6 +765,12 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
+                vbox:
+                    style_prefix "check"
+                    label _("Accessibility")
+                    textbutton _("High Contrast Text") action Preference("high contrast text", "toggle")
+                    textbutton _("Screen Reader") action Preference("self voicing", "toggle")
+
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
 
@@ -785,6 +791,14 @@ screen preferences():
                     bar value Preference("auto-forward time")
 
                 vbox:
+
+                    if config.has_music or config.has_sound or config.has_voice:
+
+                        label _("Master Volume")
+
+                        bar value Preference("main volume")
+
+                        null height gui.pref_spacing
 
                     if config.has_music:
                         label _("Music Volume")
