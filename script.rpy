@@ -24,7 +24,7 @@ label splashscreen:
 label start:
 
     $ save_name = "Prologue"
-    scene rhs with fade
+    scene school_cool with fade
 
     n "Rosaryhill School, also known as 'RHS', has been standing proud for hundreds of years."
 
@@ -54,7 +54,7 @@ label start:
 
     n ".. ow.. "
 
-    scene rhs with dissolve
+    scene classroom with dissolve
 
     n "ow, ow, ow. My head is killing me.."
 

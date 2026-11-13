@@ -65,9 +65,9 @@ label map_hub:
     call screen map_menu
     $ map_choice = _return
     if map_choice is not None:
-        jump map_choice
+        jump expression map_choice
     if map_exit_label:
-        jump map_exit_label
+        jump expression map_exit_label
     return
 
 

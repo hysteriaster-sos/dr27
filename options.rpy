@@ -149,8 +149,13 @@ define config.save_directory = "dr27-1781766095"
 ## Icon ########################################################################
 ##
 ## The icon displayed on the taskbar or dock.
+##
+## This pointed at gui/window_icon.png, which was never added to the project.
+## Ren'Py raises FileNotFoundError during startup while the file is missing,
+## so the game would not start at all. Left commented out until there is art
+## to point at; add gui/window_icon.png and uncomment to set one.
 
-define config.window_icon = "gui/window_icon.png"
+# define config.window_icon = "gui/window_icon.png"
 
 
 ## Build configuration #########################################################
