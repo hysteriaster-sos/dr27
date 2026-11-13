@@ -86,8 +86,8 @@ screen classroom():
         xpos 1381
         ypos 960
         focus_mask True
-        idle Transform("04_stand.png",zoom= 0.3)
-        hover Transform("04_stand.png",zoom= 0.3)
+        idle Transform("images/04_stand.png",zoom= 0.3)
+        hover Transform("images/04_stand.png",zoom= 0.3)
         at sprite_entrance
         action Jump("talk_to_ezra")
 
