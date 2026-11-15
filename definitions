@@ -1,0 +1,79 @@
+init:
+    # basics
+    $ config.window_title = 'DR27'
+
+    #characters
+    $ n = Character (None, what_color="#00ffff", textbox_background="gui/textbox.png")
+    $ d = Character(None, what_color="#00ff00", textbox_background="gui/textbox.png")
+    $ n01 = Character('Kirsten')
+    $ n02 = Character('Aster')
+    $ n03 = Character('Zoe')
+    $ n04 = Character('Ezra')
+    $ n05 = Character('Lythan')
+    $ n11 = Character('Zach')
+
+image n01 = "images/01/01_default.png"
+image n01 challenge = "images/01/01_challenge.png"
+image n01 cookie = "images/01/01_cookie.png"
+image n01 distressed = "images/01/01_distress.png"
+image n01 smug = "images/01/01_smug.png"
+image n01 stressed = "images/01/01_stressed.png"
+
+image n04 = "images/04/04_away.png"
+image n04 question= "images/04/04_question.png"
+image n04 smile = "images/04/04_smile.png"
+image n04 arm away = "images/04/04_arm_away.png"
+image n04 arm doubt = "images/04/04_arm_doubt.png"
+image n04 arm_smile = "images/04/04_arm_smile.png"
+
+image n05 = "images/05/05_default.png"
+image n05 depressed = "images/05/05_depressed.png"
+image n05 nerv = "images/05/05_nerv.png"
+image n05 pensive = "images/05/05_pensive.png"
+
+
+
+## transforms
+
+transform sprite_entrance:
+    on show:
+        yzoom 0.25 yanchor 1.0
+        easein_bounce 0.75 yzoom 1.0
+    on hide:
+        easeout 0.3 alpha 0.0 yoffset 40
+
+transform player:
+    on show:
+        xalign 1.5 alpha 0.0 yalign 0.5
+        easein_cubic 0.3 xalign 1.0 alpha 1.0
+    on hide:
+        easeout 0.3 alpha 0.0
+
+transform happy:
+    ypos 1.25 yanchor 1.0
+    easein_elastic 1.0 ypos 1.0
+
+
+# imagebuttons
+screen classroom():
+    modal True
+    imagebutton:
+        xpos 1381
+        ypos 960
+        focus_mask True
+        idle Transform("images/04/04_full.png",zoom= 0.3)
+        hover Transform("images/04/04_full.png",zoom= 0.3)
+        at sprite_entrance
+        action Jump("ezra_1")
+
+screen prehall():
+    modal True
+    imagebutton:
+        xpos 1381
+        ypos 960
+        focus_mask True
+        idle Transform("images/01/01_full.png",zoom= 0.3)
+        hover Transform("images/01/01_full.png",zoom= 0.3)
+        at sprite_entrance
+        action Jump("kirsten_1")
+
