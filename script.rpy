@@ -1,16 +1,9 @@
-init:
-    # basics
-    $ config.window_title = 'DR27'
+init python:
+    def dismiss_callback():
+        renpy.play("text.mp3")
+        return True
+    config.say_allow_dismiss = dismiss_callback
 
-    #characters
-    $ n = Character (_narrator, what_color="#00ffff")
-    $ d = Character(_narrator, what_color="#00ff00")
-    $ n01 = Character('Kirsten')
-    $ n02 = Character('Aster')
-    $ n03 = Character('Zoe')
-    $ n04 = Character('Ezra')
-    $ n05 = Character('Lythan')
-    $ n11 = Character('Zach')
 
 label splashscreen:
     scene black
@@ -26,17 +19,16 @@ label start:
     $ save_name = "Prologue"
     scene school_cool with fade
 
+
     n "Rosaryhill School, also known as 'RHS', has been standing proud for hundreds of years."
 
     n "The school has seen the rise of countless {color=#bf9000}{b}'ultimate'{/b}{/color} students, each one seemingly just as-if not more successful than the last."
 
-    n "Students from all over the world gather right here, in front of the school's gates. I'm sure they all have hope in their eyes for a bright future as they look up at such a school.}"
+    n "Students from all over the world gather right here, in front of the school's gates. I'm sure they all have hope in their eyes for a bright future as they look up at such a school."
 
     n "I stand there for a while, before taking a long breath to settle myself. I don't know what this school has in store for me. But it never hurts to be prepared for the worst-case scenarios." 
 
     n "Of course, I don't think I could've ever fully prepared myself for what came next."
-
-    show 06_default with dissolve
 
     n05 "My name is {color=#bf9000}{b}Lythan{/b}{/color}. I'm a pretty average student for someone standing in front of such a prestigious school."
 
@@ -44,17 +36,22 @@ label start:
 
     n05 "Back to the topic at hand though .." 
 
-    scene black with fade
+    d "One tentative step, another follows suit."
+    
+    show school_corrupted with dissolve
 
-    d "One tentative step, another follows suit. You barely make it past the gates when your vision begins to swim."
+    d "You barely make it past the gates when your vision begins to swim."
 
     n05 "Ugh.. my head.."
+
+    scene black with fade 
 
     n05 "..."
 
     n ".. ow.. "
 
-    scene classroom with dissolve
+    scene rhs with dissolve
+    show classroom 
 
     n "ow, ow, ow. My head is killing me.."
 
@@ -73,52 +70,133 @@ label start:
 
     return
 
-transform sprite_entrance:
-    on show:
-        yzoom 0.25 yanchor 1.0
-        easein_bounce 0.75 yzoom 1.0
-    on hide:
-        easeout 0.3 alpha 0.0 yoffset 40
 
-screen classroom():
-    modal True
-    imagebutton:
-        xpos 1381
-        ypos 960
-        focus_mask True
-        idle Transform("images/04_stand.png",zoom= 0.3)
-        hover Transform("images/04_stand.png",zoom= 0.3)
-        at sprite_entrance
-        action Jump("talk_to_ezra")
-
-label talk_to_ezra:
+label ezra_1:
+    play sound transition
     pause 0.3
-    show 06_default
-    show 05_default
+    show n04
     with dissolve
 
     n ".. Isn't this how the first victims usually die in horror movies?"
 
     n "Whatever. It's not like I'm actually in a horror movie."
 
-    show 06_nervsmile
+    show n05 nerv at player
 
     n05 "Hey. Do you know where we are?" 
 
+
     n04 "..." 
 
-    show 06_sweat
-
     n05 "..."
+    hide n05 nerv
 
     n04 "..."
 
-    n05 "I’ll take that as a 'no'. I’m Lythan."
+    n05 "I'll take that as a 'no'. I'm Lythan."
 
-    n "Introducing myself is probably the best course of action. Maybe it’ll help her trust me more." 
+    n "Introducing myself is probably the best course of action. Maybe it'll help her trust me more." 
 
-    show 05_openmouth
+    show n04 question
 
     n04 ".. Ezra." 
 
+    n05 "... Sorry?"
+
+    n04 "My name is Ezra."
+
+    n05 "Oh. Well, I'd say 'nice to meet you' but that's not exactly true. I mean- it's nice to meet you. But this place is kind of... not it."
+    
+    show n04 smile
+
+    d "She chuckles. She seems to be a little less on edge."
+
+    n05 "So.. uhm.. do RHS students usually hang around empty-and-possibly-abandoned classrooms?"
+
+    show n04 question
+    d "She shakes her head slowly. She opens her mouth to say something but quickly closes it again"
+    show n04
+
+    show n05 at player    
+    n05 "Something on your mind?"
+    hide n05
+
+    n04 ".. The classroom door is unlocked"
+
+    show n05 pensive at player  
+    play sound sfx_dull
+    n "Ah. Now I feel like an idiot for not trying that first."
+
+    show n05 nerv at player  
+    n05 "Great! Let's get out of here then! No point in moping around in a place like this, right?"
+    hide n05 nerv
+    
+    d "You turn to look at Ezra as you make your way to the door. But, she's still standing there."
+
+    n05 "Ezra? You coming?"
+
+    d "She's silent for a long while. She looks like she just wants to go home."
+
+    d "She doesn't say anything as she walks closer, ducking her head down and staring at the floor in front of her as she walks."
+
+    show school_cool with fade
+
+    show n04 arm away with dissolve
+    d "The two of you spend some time wandering around the school. You've tried to start conversation, but Ezra seems less willing to speak now that you're out of the classroom."
+
+    n05 ".. Wasn't there.. some kind of thing in the hall?" 
+
+    n04 ".. Was there?" 
+
+    d "You exchange a glance. You don't even know what time it is." 
+
+    n05 "Hmm.. my memory is still kind of hazy. I can't really remember things."
+
+    n04 ".. My memory isn't the best either.. sorry.." 
+
+    n05 "It's okay! That just means that we'll figure things out together! Nothing wrong with that." 
+
+    n05 "Let's just try to find the hall for now, maybe we'll bump into some more people along the way." 
+
+
+    show schoolhall_entrance with fade
+
+    n05 "Damn, this school is big. I feel like we've been looping this area for-"
+
+    n "You notice a flicker of something in the distance."
+    play sound sfx_point
+
+    n "Is that another student? Come to think of it, this school is pretty empty for such a prestigious institution. " 
+
+    n "Maybe I should approach her? Or… I don't even know if she's a threat to me or not. "
+
+    call screen prehall
+
+label kirsten_1:
+    pause 0.3
+    show n01 at happy with dissolve 
+    play sound sfx_charm
+
+    n01 "Oh! More students! Are you two the last?" 
+
+    n05 "I think so? I didn't really see anyone else walking around." 
+
+    show n01 cookie
+    n01 "Hmm.. It's whatever, come on." 
+
+    n05 "Uh.. where, exactly?" 
+
+    show n01 -cookie
+    n01 "The hall, of course! It was everywhere on those posters." 
+
+    n "Posters? Did I read one? I remember something about the hall.. but, not entirely. "
+
+    n01 "I'm Kirsten. The Ultimate Baker."
+
+    n05 "Oh! Right! I'm the Ultimate Author. I think that's what my letter said." 
+
+    show n01 smug
+    n01 "You think?" 
+
     return
+
